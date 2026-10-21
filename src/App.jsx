@@ -859,9 +859,7 @@ function App() {
                   <span>Enquire for {currentProject.name}</span>
                   &rarr;
                 </button>
-                <a href="#floor-plans" className="btn-view-plans">
-                  <span>View Floor Plans</span>
-                </a>
+
               </div>
             </div>
           </div>
