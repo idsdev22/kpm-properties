@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="24" fill="#0C4CA4"/>
+  <rect x="18" y="18" width="84" height="84" rx="14" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+  <!-- Buildings Inside Emblem -->
+  <path d="M34 86 V56 L47 44 V86 Z" fill="#FFFFFF"/>
+  <path d="M51 86 V30 L69 16 V86 Z" fill="#FFFFFF"/>
+  <path d="M73 86 V48 L86 58 V86 Z" fill="#FFFFFF"/>
+  <!-- Base Cut Line -->
+  <line x1="28" y1="94" x2="92" y2="94" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+</svg>

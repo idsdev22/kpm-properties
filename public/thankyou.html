@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | KPM Properties</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at 50% 20%, #eef5fc 0%, #dbe9f9 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      .thankyou-card {
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        width: 100%;
+        max-width: 540px;
+        padding: 50px 36px;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(12, 76, 164, 0.15);
+        border: 1px solid rgba(12, 76, 164, 0.12);
+        animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      @keyframes cardAppear {
+        from {
+          opacity: 0;
+          transform: translateY(24px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .logo-img {
+        max-width: 190px;
+        height: auto;
+        margin-bottom: 24px;
+      }
+      
+      .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, rgba(12, 76, 164, 0.1), rgba(30, 136, 229, 0.15));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        color: #0C4CA4;
+        border: 2px solid rgba(12, 76, 164, 0.2);
+      }
+      
+      .icon-wrapper svg {
+        width: 40px;
+        height: 40px;
+      }
+      
+      h1 {
+        font-family: 'Inter', sans-serif;
+        color: #061833;
+        font-size: 38px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+      
+      p {
+        color: #4A5568;
+        font-size: 15px;
+        line-height: 1.65;
+        margin-bottom: 32px;
+      }
+      
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #fff;
+        background: linear-gradient(135deg, #0C4CA4 0%, #1565C0 100%);
+        text-decoration: none;
+        border-radius: 12px;
+        padding: 16px 36px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 10px 25px rgba(12, 76, 164, 0.35);
+      }
+      
+      .back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(12, 76, 164, 0.45);
+        background: linear-gradient(135deg, #0B4493 0%, #0D5CB6 100%);
+      }
+      
+      @media (max-width: 768px) {
+        .thankyou-card {
+          padding: 36px 20px;
+        }
+        h1 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thankyou-card">
+      <img src="/assets/kpm_logo.png" alt="KPM Builders & Promoters" class="logo-img" />
+      <div class="icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h1>Enquiry Received!</h1>
+      <p>Thank you for your interest in KPM Properties. Our dedicated Coimbatore relationship advisor will reach out to you within 30 minutes with detailed brochures, pricing sheets, and site visit schedules.</p>
+      <a href="/" class="back-btn">
+        <span>Back to KPM Properties</span>
+        &rarr;
+      </a>
+    </div>
+  </body>
+</html>
