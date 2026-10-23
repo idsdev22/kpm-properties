@@ -54,7 +54,7 @@ function App() {
       statusType: 'launch',
       possession: 'Immediate Handover',
       rera: 'DTCP Approved Layout',
-      image: '/assets/project_ss_garden.jpg',
+      image: '/assets/ss/ss2.png',
       shortDesc: 'Prime DTCP approved township situated on Mettupalayam-Annur NH at Kumarankundru (15 mins from Mettupalayam). Exclusive Diwali Offer: Plots at ₹4.99L/cent (was ₹5.75L) and 2 BHK villas at ₹32L with 90% bank loan, FREE registration cost, and FREE gold coin on spot booking!',
       fullDesc: 'KPM S.S Garden is a premier DTCP approved residential township situated amidst 100+ established homes (100+ குடியிருப்புகளுக்கு மத்தியில்) on the Mettupalayam - Annur National Highway. Benefit from rapid NH connectivity, sweet drinking water, blacktop roads, street lighting, and up to 90% bank loan sanction.',
       highlights: [
@@ -91,7 +91,7 @@ function App() {
       statusType: 'active',
       possession: 'Immediate Registration',
       rera: 'DTCP Approved Layout',
-      image: '/assets/project_royal_meadows.jpg',
+      image: '/assets/royal/royal1.png',
       shortDesc: 'Scenic gated community near Annur offering Coimbatore’s most affordable DTCP approved residential plots at just ₹3.29L per cent, 1 BHK individual villas at ₹20 Lakhs, and 2 BHK villas at ₹25 Lakhs with 90% bank loan facility.',
       fullDesc: 'KPM Royal Meadows near Annur brings your dream home into reality at budget-friendly pricing. Independent 1 & 2 BHK modern villas and spacious residential plots nestled in a peaceful, pollution-free green setting with 90% bank loan support from top nationalized banks.',
       highlights: [
@@ -128,7 +128,7 @@ function App() {
       statusType: 'ready',
       possession: 'Immediate Handover / Ready to Occupy',
       rera: 'DTCP Approved Layout',
-      image: '/assets/project_pkn_arcade.jpg',
+      image: '/assets/pkn/pkn1.png',
       shortDesc: 'Strategically situated on Kovilpalayam to Karuvalur main road. Featuring ready-to-move 2 BHK luxury independent villas at ₹41 Lakhs and prime residential plots at ₹6.29L per cent with 90% bank loan support.',
       fullDesc: 'KPM PKN Arcade offers high capital appreciation on the busy Kovilpalayam - Karuvalur corridor. With ready-to-move 2 BHK villas complete with covered car parking, compound wall, modular kitchen, and prime plots with ready water and electricity connections.',
       highlights: [
@@ -156,21 +156,21 @@ function App() {
   // Hero slideshow slides
   const heroSlides = [
     {
-      image: '/assets/project_ss_garden.jpg',
+      image: '/assets/ss/ss2.png',
       tag: 'Kumarankundru, Mettupalayam - Annur NH',
       title: 'KPM S.S Garden',
       badge: 'Diwali Offer: Plots ₹4.99L/Cent • 2 BHK ₹32L • 90% Loan',
       desc: 'Exclusive Diwali Offer on Mettupalayam-Annur NH! Amidst 100+ residences with FREE registration cost, FREE gold coin on spot booking, and 90% bank loan assistance.'
     },
     {
-      image: '/assets/project_royal_meadows.jpg',
+      image: '/assets/royal/royal1.png',
       tag: 'Near Annur, Coimbatore',
       title: 'KPM Royal Meadows',
       badge: 'Plots ₹3.29L/Cent • 1 BHK ₹20L • 2 BHK ₹25L • 90% Loan',
       desc: 'Most affordable DTCP approved gated community near Annur. Own your dream plot or villa with 90% bank loan and budget-friendly pricing from ₹20 Lakhs.'
     },
     {
-      image: '/assets/project_pkn_arcade.jpg',
+      image: '/assets/pkn/pkn1.png',
       tag: 'Kovilpalayam to Karuvalur Road',
       title: 'KPM PKN Arcade',
       badge: 'Plots ₹6.29L/Cent • Ready to Move 2 BHK Villas ₹41L • 90% Loan',
@@ -234,15 +234,21 @@ function App() {
 
   // Gallery slides with categories
   const allGalleryItems = [
-    { title: 'KPM S.S Garden Layout', image: '/assets/project_ss_garden.jpg', category: 'architecture', tag: 'Mettupalayam NH' },
-    { title: 'KPM Royal Meadows Gated Community', image: '/assets/project_royal_meadows.jpg', category: 'architecture', tag: 'Near Annur' },
-    { title: 'KPM PKN Arcade Ready Villas', image: '/assets/project_pkn_arcade.jpg', category: 'architecture', tag: 'Kovilpalayam Rd' },
+    { title: 'KPM S.S Garden Layout', image: '/assets/ss/ss.png', category: 'architecture', tag: 'Mettupalayam NH' },
+    { title: 'KPM S.S Garden Layout', image: '/assets/ss/ss2.png', category: 'architecture', tag: 'Mettupalayam NH' },
+    { title: 'KPM S.S Garden Layout', image: '/assets/ss/ss1.png', category: 'architecture', tag: 'Mettupalayam NH' },
+    { title: 'KPM Royal Meadows Gated Community', image: '/assets/royal/royal.png', category: 'architecture', tag: 'Near Annur' },
+    { title: 'KPM Royal Meadows Gated Community', image: '/assets/royal/royal2.png', category: 'architecture', tag: 'Near Annur' },
+    { title: 'KPM Royal Meadows Gated Community', image: '/assets/royal/royal1.png', category: 'architecture', tag: 'Near Annur' },
+    { title: 'KPM PKN Arcade Ready Villas', image: '/assets/pkn/pkn.png', category: 'architecture', tag: 'Kovilpalayam Rd' },
+    { title: 'KPM PKN Arcade Ready Villas', image: '/assets/pkn/pkn1.png', category: 'architecture', tag: 'Kovilpalayam Rd' },
+    { title: 'KPM PKN Arcade Ready Villas', image: '/assets/pkn/pkn2.png', category: 'architecture', tag: 'Kovilpalayam Rd' },
+    { title: 'KPM PKN Arcade Ready Villas', image: '/assets/pkn/pkn3.png', category: 'architecture', tag: 'Kovilpalayam Rd' },
+    { title: 'KPM PKN Arcade Ready Villas', image: '/assets/pkn/pkn4.png', category: 'architecture', tag: 'Kovilpalayam Rd' },
     { title: 'Spacious Modern Villa Living Hall', image: '/assets/slid3-BI0P2p4_.jpg', category: 'interior', tag: 'Interiors' },
     { title: 'Gated Layout Entrance Arch', image: '/assets/club-BuFzdcAI.png', category: 'amenities', tag: 'Entrance Gate' },
     { title: 'Wide Blacktop Internal Roads', image: '/assets/slid7-DT7ytL2u.png', category: 'amenities', tag: 'Roads & Lights' },
     { title: 'Master Bedroom with En-Suite', image: '/assets/slid8-DcASU5si.png', category: 'interior', tag: 'Bedrooms' },
-    { title: 'Modern Modular Kitchen', image: '/assets/slid9-B7NULodB.png', category: 'interior', tag: 'Kitchen' },
-    { title: 'Children’s Play Park & Green Turf', image: '/assets/play-area-BQSrg8Sh.jpg', category: 'amenities', tag: 'Gardens' }
   ]
 
   const filteredGallery = useMemo(() => {
