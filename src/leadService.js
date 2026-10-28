@@ -1,5 +1,5 @@
 // Google Apps Script Web App Endpoint for Leads
-export const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCxJfqfH0LWVTl220_OOJUzFyseUSVAuJmyuMxC_T6qQEWGfmQHNcU-3bGCWKgic9KXw/exec';
+export const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqHu0-YWohp5pu9JKoz--lJxLWOEvs9LKsy9hcp142oYkoOk9E1geQpmF0h7QrSysztg/exec';
 
 /**
  * Submits lead data to Google Sheets & triggers automated email alert.
