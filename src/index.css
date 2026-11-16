@@ -848,7 +848,7 @@ button {
 /* Project Switcher Tabs */
 .project-switcher-nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 36px;
 }
@@ -939,7 +939,13 @@ button {
   border-color: var(--primary-color);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .project-switcher-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
   .project-switcher-nav {
     grid-template-columns: 1fr;
   }
@@ -1275,7 +1281,7 @@ button {
 
 .three-projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -1418,7 +1424,13 @@ button {
   border-color: #cbd5e1;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
+  .three-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
   .three-projects-grid {
     grid-template-columns: 1fr;
   }
@@ -2330,6 +2342,10 @@ button {
 .loc-pill.green {
   background: #D1FAE5;
   color: #047857;
+}
+.loc-pill.gold {
+  background: #FEF3C7;
+  color: #B45309;
 }
 
 .location-cards-grid {

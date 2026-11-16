@@ -7,8 +7,8 @@ function App() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [heroIndex, setHeroIndex] = useState(0)
-  const [activeProjectTab, setActiveProjectTab] = useState('ss_garden') // 'ss_garden' | 'royal_meadows' | 'pkn_arcade'
-  const [projectFilter, setProjectFilter] = useState('all') // 'all' | 'offer' | 'ready'
+  const [activeProjectTab, setActiveProjectTab] = useState('ss_garden') // 'ss_garden' | 'royal_meadows' | 'pkn_arcade' | 'star_avenue'
+  const [projectFilter, setProjectFilter] = useState('all') // 'all' | 'offer' | 'ready' | 'budget'
   const [galleryCategory, setGalleryCategory] = useState('all')
   const progressBarRef = useRef(null)
   const [activeVideoId, setActiveVideoId] = useState(null)
@@ -34,7 +34,7 @@ function App() {
   const [submitting, setSubmitting] = useState(false)
   const [successMsg, setSuccessMsg] = useState('')
 
-  // 3 Coimbatore Flagship Projects Data
+  // 4 Coimbatore Flagship Projects Data
   const coimbatoreProjects = [
     {
       id: 'ss_garden',
@@ -145,6 +145,43 @@ function App() {
         { label: 'Status', value: 'Ready to Move' },
         { label: 'Bank Loan', value: '90% Sanction' }
       ]
+    },
+    {
+      id: 'star_avenue',
+      name: 'KPM Star Avenue',
+      tagline: 'Low Budget DTCP Approved Plots & Independent Villas',
+      location: 'Ponnegoundenpudur, Kovilpalayam, Coimbatore',
+      areaTag: 'Ponnegoundenpudur, Kovilpalayam',
+      type: 'Plots & Villas',
+      category: 'plots_villas',
+      badge: 'Low Budget • New Launch',
+      badgeColor: 'green',
+      price: '₹6.50 Lakhs*',
+      priceUnit: 'Per Cent (Plots) • Low Budget Villas',
+      sqft: 'Plots from 1.5 Cents+ • Villas (650 - 1,250 Sq.Ft)',
+      config: 'Low Budget DTCP Plots & Villas',
+      status: 'New Launch • Booking Open',
+      statusType: 'launch',
+      possession: 'Immediate Registration & Handover',
+      rera: 'DTCP Approved Layout',
+      image: '/assets/sa/sa2.png',
+      shortDesc: 'Prime low budget DTCP approved residential plots and individual villas in Kovilpalayam, Ponnegoundenpudur. Plots starting from just ₹6.50 Lakhs per cent with up to 90% bank loan facility, blacktop tar roads, sweet water, and fast connectivity to Sathy Road & IT corridors.',
+      fullDesc: 'KPM Star Avenue at Kovilpalayam, Ponnegoundenpudur is an affordable, high-growth plotted layout and independent villa community designed for budget-conscious home buyers and smart investors. Featuring 100% DTCP approval, clear titles, 30ft & 40ft blacktop roads, street lighting, sweet potable water, and up to 90% bank loan sanction from leading nationalized banks.',
+      highlights: [
+        'Low Budget Residential Plots starting at just ₹6.50 Lakhs / Cent',
+        'Customizable 1 & 2 BHK Independent Low Budget Villas',
+        '100% DTCP Approved Layout with Crystal Clear Legal Titles',
+        'Up to 90% Bank Loan Approved with Easy Monthly EMI Options',
+        'Wide Blacktop Tar Roads, Solar Street Lighting & Compound Wall',
+        'Abundant Sweet Drinking Water & Peaceful Green Surroundings',
+        'Located at Ponnegoundenpudur, Minutes to Kovilpalayam & Sathy Road'
+      ],
+      stats: [
+        { label: 'Plots / Cent', value: '₹6.50 Lakhs' },
+        { label: 'Type', value: 'Plots & Villas' },
+        { label: 'Approval', value: '100% DTCP' },
+        { label: 'Bank Loan', value: '90% Sanction' }
+      ]
     }
   ]
 
@@ -175,6 +212,13 @@ function App() {
       title: 'KPM PKN Arcade',
       badge: 'Plots ₹6.29L/Cent • Ready to Move 2 BHK Villas ₹41L • 90% Loan',
       desc: 'High-appreciation main road project with ready-to-move 2 BHK luxury villas at ₹41 Lakhs and prime plots at ₹6.29L/cent with 90% bank loan.'
+    },
+    {
+      image: '/assets/sa/sa2.png',
+      tag: 'Ponnegoundenpudur, Kovilpalayam',
+      title: 'KPM Star Avenue',
+      badge: 'Plots ₹6.50L/Cent • Low Budget DTCP Plots & Villas • 90% Loan',
+      desc: 'Affordable low budget DTCP approved plots and villas at Kovilpalayam, Ponnegoundenpudur. Clear titles, wide tar roads, sweet water, and 90% bank loan assistance.'
     }
   ]
 
@@ -182,14 +226,15 @@ function App() {
   const displayedProjects = useMemo(() => {
     if (projectFilter === 'all') return coimbatoreProjects
     if (projectFilter === 'ready') return coimbatoreProjects.filter((p) => p.statusType === 'ready')
-    if (projectFilter === 'offer') return coimbatoreProjects.filter((p) => p.badgeColor === 'gold')
+    if (projectFilter === 'offer') return coimbatoreProjects.filter((p) => p.badgeColor === 'gold' || p.badge.includes('Offer'))
+    if (projectFilter === 'budget') return coimbatoreProjects.filter((p) => p.badge.toLowerCase().includes('budget') || p.tagline.toLowerCase().includes('budget'))
     return coimbatoreProjects
-  }, [projectFilter])
+  }, [projectFilter, coimbatoreProjects])
 
   // Trust numbers
   const trustStats = [
-    { number: '90%', label: 'Bank Loan Sanctioned on All 3 Projects' },
-    { number: '3', label: 'Landmark Coimbatore Projects' },
+    { number: '90%', label: 'Bank Loan Sanctioned on All 4 Projects' },
+    { number: '4', label: 'Landmark Coimbatore Projects' },
     { number: '100+', label: 'Homes in S.S Garden Community' },
     { number: '100%', label: 'DTCP Approved & Clear Titles' }
   ]
@@ -198,7 +243,7 @@ function App() {
   const reasons = [
     {
       title: 'Up to 90% Bank Loan Approved',
-      desc: 'All 3 projects — S.S Garden, Royal Meadows, and PKN Arcade — are pre-approved by leading banks (SBI, HDFC, ICICI, Axis Bank) with low 10% down payment.'
+      desc: 'All 4 projects — S.S Garden, Royal Meadows, PKN Arcade, and Star Avenue — are pre-approved by leading banks (SBI, HDFC, ICICI, Axis Bank) with low 10% down payment.'
     },
     {
       title: '100% DTCP Approved & Clear Titles',
@@ -206,7 +251,7 @@ function App() {
     },
     {
       title: 'Prime Coimbatore Growth Corridors',
-      desc: 'Strategically located on Mettupalayam-Annur NH, Annur town, and Kovilpalayam-Karuvalur road with direct highway frontage and rapid value appreciation.'
+      desc: 'Strategically located on Mettupalayam-Annur NH, Annur town, Kovilpalayam-Karuvalur road, and Ponnegoundenpudur (Kovilpalayam) with direct road frontage and rapid value appreciation.'
     },
     {
       title: '100% Vastu & Architectural Purity',
@@ -234,6 +279,11 @@ function App() {
 
   // Gallery slides with categories
   const allGalleryItems = [
+    { title: 'KPM Star Avenue Plotted Layout', image: '/assets/sa/sa.png', category: 'architecture', tag: 'Ponnegoundenpudur' },
+    { title: 'KPM Star Avenue Township Aerial View', image: '/assets/sa/sa1.png', category: 'architecture', tag: 'Kovilpalayam' },
+    { title: 'KPM Star Avenue Enclave & Villas', image: '/assets/sa/sa2.png', category: 'architecture', tag: 'Kovilpalayam' },
+    { title: 'KPM Star Avenue 30ft Tar Road & Street Lights', image: '/assets/sa/sa3.png', category: 'amenities', tag: 'Roads & Lights' },
+    { title: 'KPM Star Avenue Modern Independent Villa', image: '/assets/sa/sa4.png', category: 'architecture', tag: 'Kovilpalayam' },
     { title: 'KPM S.S Garden Layout', image: '/assets/ss/ss.png', category: 'architecture', tag: 'Mettupalayam NH' },
     { title: 'KPM S.S Garden Layout', image: '/assets/ss/ss2.png', category: 'architecture', tag: 'Mettupalayam NH' },
     { title: 'KPM S.S Garden Layout', image: '/assets/ss/ss1.png', category: 'architecture', tag: 'Mettupalayam NH' },
@@ -288,10 +338,10 @@ function App() {
     },
     'dtcp_plots': {
       title: 'DTCP Approved Plots (From ₹3.29L / Cent)',
-      project: 'Available Across S.S Garden, Royal Meadows & PKN Arcade',
+      project: 'Available Across S.S Garden, Royal Meadows, PKN Arcade & Star Avenue',
       desc: 'Residential and commercial plots with clear titles, tar roads, street lighting, and immediate registration.',
       image: '/assets/floor5.png',
-      specs: ['Royal Meadows: ₹3.29L/Cent', 'S.S Garden: ₹4.99L/Cent (Diwali Offer)', 'PKN Arcade: ₹6.29L/Cent', '90% Plot Loan Assistance']
+      specs: ['Royal Meadows: ₹3.29L/Cent', 'S.S Garden: ₹4.99L/Cent (Diwali Offer)', 'PKN Arcade: ₹6.29L/Cent', 'Star Avenue: ₹6.50L/Cent', '90% Plot Loan Assistance']
     }
   }
 
@@ -302,9 +352,10 @@ function App() {
       places: [
         'Mettupalayam - Annur NH (Direct Highway Frontage) • 0 Mins',
         'Kovilpalayam to Karuvalur Main Road • 0 Mins',
+        'Ponnegoundenpudur / Kovilpalayam Junction • 2 Mins',
         'Annur Central Bus Stand & Market • 5 Mins',
         'Mettupalayam Town & Railway Station • 15 Mins',
-        'Sathy Road (NH 209) Connectivity • 10 Mins'
+        'Sathy Road (NH 209) Connectivity • 5 Mins'
       ]
     },
     {
@@ -357,12 +408,12 @@ function App() {
   // FAQ Data
   const faqs = [
     {
-      question: 'What are the 3 projects currently offered by KPM Builders & Promoters?',
-      answer: 'We offer 3 marquee projects: 1) KPM S.S Garden on Mettupalayam - Annur NH (Kumarankundru) featuring a Diwali offer on plots at ₹4.99L/cent and 2 BHK villas at ₹32L; 2) KPM Royal Meadows near Annur with plots at ₹3.29L/cent, 1 BHK villas at ₹20L, and 2 BHK villas at ₹25L; and 3) KPM PKN Arcade on Kovilpalayam to Karuvalur Road offering prime plots at ₹6.29L/cent and ready-to-move 2 BHK villas at ₹41L.'
+      question: 'What are the 4 projects currently offered by KPM Builders & Promoters?',
+      answer: 'We offer 4 marquee projects: 1) KPM S.S Garden on Mettupalayam - Annur NH (Kumarankundru) featuring a Diwali offer on plots at ₹4.99L/cent and 2 BHK villas at ₹32L; 2) KPM Royal Meadows near Annur with plots at ₹3.29L/cent, 1 BHK villas at ₹20L, and 2 BHK villas at ₹25L; 3) KPM PKN Arcade on Kovilpalayam to Karuvalur Road offering prime plots at ₹6.29L/cent and ready-to-move 2 BHK villas at ₹41L; and 4) KPM Star Avenue at Ponnegoundenpudur, Kovilpalayam offering low-budget DTCP approved plots at ₹6.50L/cent and customizable independent villas with up to 90% bank loan.'
     },
     {
-      question: 'Is 90% bank loan available for all 3 projects?',
-      answer: 'Yes! All 3 projects — S.S Garden, Royal Meadows, and PKN Arcade — are pre-approved by leading banks (SBI, HDFC, ICICI, Axis Bank, etc.) with up to 90% bank loan facility. You only need a 10% down payment to book and own your plot or villa.'
+      question: 'Is 90% bank loan available for all 4 projects?',
+      answer: 'Yes! All 4 projects — S.S Garden, Royal Meadows, PKN Arcade, and Star Avenue — are pre-approved by leading banks (SBI, HDFC, ICICI, Axis Bank, etc.) with up to 90% bank loan facility. You only need a 10% down payment to book and own your plot or villa.'
     },
     {
       question: 'What is the special Diwali Offer available for S.S Garden?',
@@ -493,7 +544,7 @@ function App() {
   }, [projectFilter, galleryCategory, activeProjectTab, floorPlanTab])
 
   // Open modal preselected with a specific project
-  const openEnquiryModal = (projectName = 'All 3 Coimbatore Projects') => {
+  const openEnquiryModal = (projectName = 'All 4 Coimbatore Projects') => {
     let matchedProject = projectName
     if (projectName.includes('S.S Garden')) {
       matchedProject = 'KPM S.S Garden (Mettupalayam - Annur NH)'
@@ -501,6 +552,8 @@ function App() {
       matchedProject = 'KPM Royal Meadows (Near Annur)'
     } else if (projectName.includes('PKN Arcade')) {
       matchedProject = 'KPM PKN Arcade (Kovilpalayam - Karuvalur Rd)'
+    } else if (projectName.includes('Star Avenue')) {
+      matchedProject = 'KPM Star Avenue (Ponnegoundenpudur, Kovilpalayam)'
     } else if (projectName.includes('Diwali')) {
       matchedProject = 'Diwali Offer Consultation'
     } else if (projectName === 'General Consultation' || projectName === 'Footer Contact' || projectName === 'Mobile Bar') {
@@ -580,7 +633,7 @@ function App() {
         <div className="announcement-content">
           <span className="badge-pill">COIMBATORE</span>
           <span className="announcement-text">
-            3 Prime Projects: S.S Garden, Royal Meadows & PKN Arcade • Up to 90% Bank Loan Available • DTCP Approved
+            4 Prime Projects: S.S Garden, Royal Meadows, PKN Arcade & Star Avenue • Up to 90% Bank Loan Available • DTCP Approved
           </span>
           <div className="top-contact-links">
             <a href="tel:+917708968557" className="contact-item">
@@ -604,7 +657,7 @@ function App() {
           <nav>
             <ul className={`nav-links ${mobileNavOpen ? 'active' : ''}`}>
               <li onClick={() => setMobileNavOpen(false)}><a href="#home">Home</a></li>
-              <li onClick={() => setMobileNavOpen(false)}><a href="#projects">3 Projects</a></li>
+              <li onClick={() => setMobileNavOpen(false)}><a href="#projects">4 Projects</a></li>
               <li onClick={() => setMobileNavOpen(false)}><a href="#why-kpm">Why KPM</a></li>
               <li onClick={() => setMobileNavOpen(false)}><a href="#amenities">Amenities</a></li>
               <li onClick={() => setMobileNavOpen(false)}><a href="#location">Locations</a></li>
@@ -675,7 +728,7 @@ function App() {
                       <span className="arrow">&rarr;</span>
                     </button>
                     <a href="#projects" className="hero-btn secondary">
-                      <span>Explore 3 Projects</span>
+                      <span>Explore 4 Projects</span>
                     </a>
                   </div>
 
@@ -700,6 +753,12 @@ function App() {
                     >
                       KPM PKN Arcade (Kovilpalayam Rd)
                     </button>
+                    <button
+                      className={activeProjectTab === 'star_avenue' ? 'active' : ''}
+                      onClick={() => { setActiveProjectTab('star_avenue'); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    >
+                      KPM Star Avenue (Kovilpalayam)
+                    </button>
                   </div>
                 </div>
 
@@ -722,7 +781,7 @@ function App() {
                       <span className="lbl">DTCP Approved</span>
                     </div>
                     <div className="stat-item">
-                      <span className="val">3</span>
+                      <span className="val">4</span>
                       <span className="lbl">Prime Projects</span>
                     </div>
                     <div className="stat-item">
@@ -765,15 +824,15 @@ function App() {
         </div>
       </section>
 
-      {/* CORE: The 3 Coimbatore Landmark Projects Showcase */}
+      {/* CORE: The 4 Coimbatore Landmark Projects Showcase */}
       <section id="projects" className="coimbatore-projects-section">
         <div className="container">
           <div className="section-header text-center">
             <span className="section-sub reveal">Premier Coimbatore Developments</span>
-            <h2 className="section-title reveal">3 Landmark Projects in Coimbatore</h2>
+            <h2 className="section-title reveal">4 Landmark Projects in Coimbatore</h2>
             <div className="title-accent-bar reveal"></div>
             <p className="section-intro reveal">
-              Explore KPM’s signature developments across Coimbatore’s fast-growing corridors: Mettupalayam-Annur NH, Annur, and Kovilpalayam with up to 90% bank loan approval.
+              Explore KPM’s signature developments across Coimbatore’s fast-growing corridors: Mettupalayam-Annur NH, Annur, Kovilpalayam, and Ponnegoundenpudur with up to 90% bank loan approval.
             </p>
           </div>
 
@@ -870,16 +929,22 @@ function App() {
             </div>
           </div>
 
-          {/* Quick Comparison of All 3 Coimbatore Projects */}
+          {/* Quick Comparison of All 4 Coimbatore Projects */}
           <div className="projects-grid-comparison">
             <div className="grid-header text-center">
-              <h3 className="reveal">Quick View: All 3 Coimbatore Projects</h3>
+              <h3 className="reveal">Quick View: All 4 Coimbatore Projects</h3>
               <div className="filter-pill-group reveal">
                 <button
                   className={projectFilter === 'all' ? 'active' : ''}
                   onClick={() => setProjectFilter('all')}
                 >
-                  All (3 Projects)
+                  All (4 Projects)
+                </button>
+                <button
+                  className={projectFilter === 'budget' ? 'active' : ''}
+                  onClick={() => setProjectFilter('budget')}
+                >
+                  Low Budget (Star Avenue & Royal Meadows)
                 </button>
                 <button
                   className={projectFilter === 'offer' ? 'active' : ''}
@@ -1070,6 +1135,7 @@ function App() {
               <span className="loc-pill blue">KPM S.S Garden • Mettupalayam - Annur NH</span>
               <span className="loc-pill green">KPM Royal Meadows • Near Annur</span>
               <span className="loc-pill azure">KPM PKN Arcade • Kovilpalayam - Karuvalur Rd</span>
+              <span className="loc-pill gold">KPM Star Avenue • Ponnegoundenpudur, Kovilpalayam</span>
             </div>
           </div>
 
@@ -1129,7 +1195,7 @@ function App() {
             <div className="footer-col brand-col">
               <img src="/assets/kpm_logo.png" alt="KPM Builders & Promoters" className="footer-logo" loading="lazy" decoding="async" />
               <p className="footer-bio">
-                KPM Builders & Promoters is Coimbatore’s premier developer, creating high-value residential plotted layouts and independent villas across S.S Garden (Mettupalayam-Annur NH), Royal Meadows (Near Annur), and PKN Arcade (Kovilpalayam-Karuvalur Rd) with up to 90% bank loan facility.
+                KPM Builders & Promoters is Coimbatore’s premier developer, creating high-value residential plotted layouts and independent villas across S.S Garden (Mettupalayam-Annur NH), Royal Meadows (Near Annur), PKN Arcade (Kovilpalayam-Karuvalur Rd), and Star Avenue (Ponnegoundenpudur, Kovilpalayam) with up to 90% bank loan facility.
               </p>
               <div className="footer-cert-badges">
                 <span className="cert-badge">DTCP Approved</span>
@@ -1138,9 +1204,9 @@ function App() {
               </div>
             </div>
 
-            {/* Col 2: The 3 Projects */}
+            {/* Col 2: The 4 Projects */}
             <div className="footer-col">
-              <h4>Our 3 Flagship Projects</h4>
+              <h4>Our 4 Flagship Projects</h4>
               <ul className="footer-links-list">
                 <li>
                   <a href="#projects" onClick={() => setActiveProjectTab('ss_garden')}>
@@ -1157,6 +1223,11 @@ function App() {
                     <strong>KPM PKN Arcade</strong> — Kovilpalayam Rd (Ready 2 BHK)
                   </a>
                 </li>
+                <li>
+                  <a href="#projects" onClick={() => setActiveProjectTab('star_avenue')}>
+                    <strong>KPM Star Avenue</strong> — Kovilpalayam (Low Budget Plots & Villas)
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -1165,7 +1236,7 @@ function App() {
               <h4>Quick Links</h4>
               <ul className="footer-links-list">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#projects">3 Projects</a></li>
+                <li><a href="#projects">4 Projects</a></li>
                 <li><a href="#why-kpm">Why KPM</a></li>
                 <li><a href="#amenities">Amenities</a></li>
                 <li><a href="#location">Coimbatore Locations</a></li>
@@ -1197,7 +1268,7 @@ function App() {
 
           <div className="footer-legal-bar">
             <div className="rera-details">
-              <span>DTCP Approved Projects: <strong>S.S Garden</strong> | <strong>Royal Meadows</strong> | <strong>PKN Arcade</strong> • 90% Bank Loan Approved</span>
+              <span>DTCP Approved Projects: <strong>S.S Garden</strong> | <strong>Royal Meadows</strong> | <strong>PKN Arcade</strong> | <strong>Star Avenue</strong> • 90% Bank Loan Approved</span>
             </div>
             <div className="copyright-line">
               <p>&copy; {new Date().getFullYear()} KPM Builders & Promoters. All rights reserved. | Built for Excellence in Coimbatore.</p>
@@ -1209,7 +1280,7 @@ function App() {
       {/* Floating Action Buttons */}
       <div className="floating-buttons">
         <a
-          href="https://wa.me/917708968557?text=Hello%20KPM%20Properties,%20I%20am%20interested%20in%20S.S%20Garden,%20Royal%20Meadows,%20or%20PKN%20Arcade%20projects."
+          href="https://wa.me/917708968557?text=Hello%20KPM%20Properties,%20I%20am%20interested%20in%20S.S%20Garden,%20Royal%20Meadows,%20PKN%20Arcade,%20or%20Star%20Avenue%20projects."
           target="_blank"
           rel="noopener noreferrer"
           className="float-btn whatsapp pulse-green"
@@ -1273,7 +1344,8 @@ function App() {
                   <option value="KPM S.S Garden (Mettupalayam - Annur NH)">KPM S.S Garden — Mettupalayam-Annur NH (Plots & 2 BHK)</option>
                   <option value="KPM Royal Meadows (Near Annur)">KPM Royal Meadows — Near Annur (Plots & 1/2 BHK)</option>
                   <option value="KPM PKN Arcade (Kovilpalayam - Karuvalur Rd)">KPM PKN Arcade — Kovilpalayam-Karuvalur Rd (Plots & Ready 2 BHK)</option>
-                  <option value="All 3 Coimbatore Projects">All 3 Coimbatore Projects (90% Bank Loan)</option>
+                  <option value="KPM Star Avenue (Ponnegoundenpudur, Kovilpalayam)">KPM Star Avenue — Ponnegoundenpudur, Kovilpalayam (Low Budget Plots & Villas)</option>
+                  <option value="All 4 Coimbatore Projects">All 4 Coimbatore Projects (90% Bank Loan)</option>
                   <option value="Diwali Offer Consultation">Diwali Special Offer Enquiry</option>
                   <option value="General Consultation">General Consultation / Home Loan</option>
                 </select>
